@@ -11,7 +11,6 @@ const Search = ({handleSearchNote}) => {
                     handleSearchNote(event.target.value)
                 } 
                 type="text" 
-                placeholder="search"
             />
         </div>
     );
