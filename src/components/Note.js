@@ -1,6 +1,6 @@
 import { BsTrash } from 'react-icons/bs';
 
-/* descture props passed in from NotesList to Note component */
+/* destructure props passed in from NotesList to Note component */
 const Note = ({id, text, date, handleDeleteNote}) => {
     return(
         <div className="note">

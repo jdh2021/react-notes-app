@@ -81,3 +81,23 @@ textarea:focus {
   cursor: pointer;
   color: #f56eb8;
 }
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: rgb(246, 241, 241);
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 1.5em;
+}
+
+.search input {
+  border: none;
+  background-color: rgb(246, 241, 241);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
+
+.search input:focus {
+  outline: none;
+}

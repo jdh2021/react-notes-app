@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
+import Search from './components/Search';
 
 /* store most of state in top-level app component since states will rely on one another */
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
     /* NotesList stored in state. need to pass notes variable to 
         NotesList via props */
     <div className="container">
+      <Search />
       <NotesList 
         notes={notes} 
         handleAddNote={addNote}
