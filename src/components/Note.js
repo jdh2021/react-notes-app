@@ -1,12 +1,13 @@
-import { MdDeleteForever } from 'react-icons/md';
+import { BsTrash } from 'react-icons/bs';
 
-const Note = () => {
+/* descture props passed in from NotesList to Note component */
+const Note = ({id, text, date}) => {
     return(
         <div className="note">
-            <span>First Note!</span>
+            <span>{text}</span>
             <div className="note-footer">
-                <small>8/22/22</small>
-                <MdDeleteForever className="delete-icon" size="1.3rem" />
+                <small>{date}</small>
+                <BsTrash className="delete-icon" size="1.3rem" />
             </div>
         </div>
     );

@@ -1,11 +1,13 @@
 import Note from './Note';
 
-const NotesList = () => {
+/* destructure prop to get notes passed in*/
+const NotesList = ({notes}) => {
     return(
         <div className="notes-list">
-            <Note />
-            <Note />
-            <Note />
+            {/*loop over a list and for each note, render a note component.*/  
+                notes.map((note) => (
+                <Note id ={note.id} text={note.text} date={note.date} />
+            ))}
         </div>
     );
 };
