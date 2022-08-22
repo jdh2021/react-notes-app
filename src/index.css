@@ -44,8 +44,8 @@ textarea:focus {
 
 .save {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 1rem;
   font-weight: bold;
+  font-size: 1rem;
   background-color: #fed78a;
   border: solid #fcc964;
   border-radius: 15px;
@@ -68,6 +68,7 @@ textarea:focus {
   justify-content: space-between;
   font-weight: bold;
   font-size: 1.25rem;
+  white-space: pre-wrap; /* keep line spacing around text */
 }
 
 .note-footer {

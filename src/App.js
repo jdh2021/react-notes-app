@@ -31,12 +31,28 @@ const App = () => {
       date: "08/22/2022"
     }
   ]);
+
+  /* pass addNote function down tree of components */
+  const addNote = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(), 
+    };
+    /* spread operator to take current array and add new note
+    bad to mutate state in react */
+    const newNotes = [...notes, newNote];
+    /* causes components to re-render and list of notes updates */
+    setNotes(newNotes);
+  };
+
   return(
     <div className="container">
       <NotesList notes={
         /* NotesList stored in state. need to pass notes variable to 
         NotesList via props */
-        notes} />
+        notes} handleAddNote={addNote} />
     </div>
   );
 };
