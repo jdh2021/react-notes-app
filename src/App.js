@@ -33,6 +33,8 @@ const App = () => {
     }
   ]);
 
+  const [searchText, setSearchText] = useState('');
+
   /* pass addNote function down tree of components */
   const addNote = (text) => {
     const date = new Date();
@@ -47,20 +49,18 @@ const App = () => {
     /* causes components to re-render and list of notes updates */
     setNotes(newNotes);
   };
-
   const deleteNote = (id) => {
     /* filter functions returns a new array */
     const newNotes = notes.filter((note)=> note.id !== id);
     setNotes(newNotes);
-  }
-
+  };
   return(
-    /* NotesList stored in state. need to pass notes variable to 
-        NotesList via props */
+    /* NotesList stored in state. need to pass notes variable to NotesList via props */
     <div className="container">
-      <Search />
+      <Search handleSearchNote = {setSearchText}/>
       <NotesList 
-        notes={notes} 
+        /* takes current list of notes, filters the notes to include only those that include searchText */
+        notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText))} 
         handleAddNote={addNote}
         handleDeleteNote={deleteNote} 
       />

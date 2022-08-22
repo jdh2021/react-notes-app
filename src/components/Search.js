@@ -1,11 +1,18 @@
 import React from 'react';
 import { AiOutlineFileSearch } from 'react-icons/ai';
 
-const Search = () => {
+/* destructure prop to get the function */
+const Search = ({handleSearchNote}) => {
     return(
         <div className="search">
             <AiOutlineFileSearch className="search-icons" size="1.3em" />
-            <input type="text" placeholder="search"></input>
+            <input 
+                onChange={(event)=> 
+                    handleSearchNote(event.target.value)
+                } 
+                type="text" 
+                placeholder="search"
+            />
         </div>
     );
 };
