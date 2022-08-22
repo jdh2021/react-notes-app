@@ -47,12 +47,21 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const deleteNote = (id) => {
+    /* filter functions returns a new array */
+    const newNotes = notes.filter((note)=> note.id !== id);
+    setNotes(newNotes);
+  }
+
   return(
-    <div className="container">
-      <NotesList notes={
-        /* NotesList stored in state. need to pass notes variable to 
+    /* NotesList stored in state. need to pass notes variable to 
         NotesList via props */
-        notes} handleAddNote={addNote} />
+    <div className="container">
+      <NotesList 
+        notes={notes} 
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote} 
+      />
     </div>
   );
 };
