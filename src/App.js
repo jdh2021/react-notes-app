@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
+import Header from './components/Header';
 
 /* store most of state in top-level app component since states will rely on one another */
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
   ]);
 
   const [searchText, setSearchText] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   /* pass addNote function down tree of components */
   const addNote = (text) => {
@@ -55,15 +57,19 @@ const App = () => {
     setNotes(newNotes);
   };
   return(
-    /* NotesList stored in state. need to pass notes variable to NotesList via props */
-    <div className="container">
-      <Search handleSearchNote = {setSearchText}/>
-      <NotesList 
-        /* takes current list of notes, filters the notes to include only those that include searchText */
-        notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText))} 
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote} 
-      />
+    /* NotesList is stored in state. Pass notes variable to NotesList via props */
+    /* if darkMode is true, add class dark-mode */
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className="container">
+        <Header handleToggleDarkMode={setDarkMode}/>
+        <Search handleSearchNote = {setSearchText}/>
+        <NotesList 
+          /* takes current list of notes, filters the notes to include only those that include searchText */
+            notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText))} 
+            handleAddNote={addNote}
+          handleDeleteNote={deleteNote} 
+        />
+      </div>
     </div>
   );
 };
