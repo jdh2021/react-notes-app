@@ -7,7 +7,7 @@ I created a notes application based on [this](https://www.youtube.com/watch?v=8K
 ## Screenshot
 
 <p align="center">
-  <img src="react-notes-app.png" width="250" />
+  <img src="react-notes-app.png" width="800" />
 </p>
 
 ## Built with
