@@ -28,7 +28,6 @@ const AddNote = ({handleAddNote}) => {
                     <button className="save" onClick={handleSaveClick}>Save</button>
                 </div>
         </div>
-
     )
 }
 

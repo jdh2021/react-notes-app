@@ -37,7 +37,7 @@ const App = () => {
       text: text,
       date: date.toLocaleDateString(), 
     };
-    /* spread operator to take current array and add new note
+    /* spread operator to take current array and add new note.
     bad to mutate state in react */
     const newNotes = [...notes, newNote];
     /* causes components to re-render and list of notes updates */
@@ -49,6 +49,7 @@ const App = () => {
     const newNotes = notes.filter((note)=> note.id !== id);
     setNotes(newNotes);
   };
+  
   return(
     /* NotesList is stored in state. Pass notes variable to NotesList via props */
     /* if darkMode is true, add class dark-mode */
