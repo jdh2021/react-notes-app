@@ -4,6 +4,10 @@ I created a notes application based on [this](https://www.youtube.com/watch?v=8K
 
 ## Screenshot
 
+<p align="center">
+  <img src="react-notes-app.png">
+</p>
+
 ## Built with
 
-React.js | JavaScript | CSS
+React.js | JavaScript | JSON | CSS

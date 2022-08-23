@@ -6,36 +6,8 @@ import Header from './components/Header';
 
 /* store most of state in top-level app component since states will rely on one another */
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: "First note",
-      date: "03/22/2022"
-    },
-    {
-      id: nanoid(),
-      text: "Second note",
-      date: "04/22/2022"
-    },
-    {
-      id: nanoid(),
-      text: "Third Note",
-      date: "06/22/2022"
-    },
-    {
-      id: nanoid(),
-      text: "Fourth Note",
-      date: "07/20/2022"
-    },
-    {
-      id: nanoid(),
-      text: "Fifth note",
-      date: "08/20/2022"
-    }
-  ]);
-
+  const [notes, setNotes] = useState([]);
   const [searchText, setSearchText] = useState('');
-
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
