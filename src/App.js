@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
@@ -35,7 +35,27 @@ const App = () => {
   ]);
 
   const [searchText, setSearchText] = useState('');
+
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    /* empty dependency array with useEffect hook means only runs on page load. 
+    app loads, goes to local storage, parses key 'react-notes-app-data' */
+    const savedNotes = JSON.parse(
+      localStorage.getItem('react-notes-app-data')
+    );
+    if(savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    /* stringify data before storing */
+    localStorage.setItem(
+      'react-notes-app-data', 
+      JSON.stringify(notes)
+    );
+  }, [notes]);
 
   /* pass addNote function down tree of components */
   const addNote = (text) => {
@@ -51,6 +71,7 @@ const App = () => {
     /* causes components to re-render and list of notes updates */
     setNotes(newNotes);
   };
+
   const deleteNote = (id) => {
     /* filter functions returns a new array */
     const newNotes = notes.filter((note)=> note.id !== id);
